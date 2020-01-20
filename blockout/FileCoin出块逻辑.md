@@ -5,7 +5,7 @@
    filecoin的出块功能是矿工模块提供的,本文简要总结一下filecoin的相关出块逻辑.
 
 ## filecoin出块函数调用
-![Image text](./20170518152848.png)
+![Image text](https://github.com/xuyp1991/filecoinlearnrecord/blob/master/blockout/filecoin_out.png)
 
 ## 矿工模块的相关功能
 
