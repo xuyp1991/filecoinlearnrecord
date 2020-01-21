@@ -37,6 +37,7 @@ outCh <- NewOutput(next, err)
 ```
 
 上面代码就是获取出块权的相关代码.
+
 |             操作              |                         含义                         |
 | :---------------------------: | :--------------------------------------------------: |
 |         getAncestors          | 获得处理所有状态转换所需的祖先链的轮数的区块的TipSet |
@@ -119,6 +120,7 @@ func (w *DefaultWorker) Generate(
 ```
 
 基础字段
+
 |      字段       |                                  赋值                                   |
 | :-------------: | :---------------------------------------------------------------------: |
 |     Miner:      |                              w.minerAddr,                               |
@@ -223,6 +225,7 @@ func (node *Node) AddNewBlock(ctx context.Context, b *block.Block) (err error) {
 	return node.syncer.ChainSyncManager.BlockProposer().SendOwnBlock(ci)
 }
 ```
+
 |      功能      |                              代码                               |
 | :------------: | :-------------------------------------------------------------: |
 |      存储      |      blkCid, err := node.Blockstore.CborStore.Put(ctx, b)       |
