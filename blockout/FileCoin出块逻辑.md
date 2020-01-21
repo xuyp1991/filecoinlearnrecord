@@ -9,7 +9,8 @@
 
 ## 出块函数调用说明
 
-根据图片所示,矿工模块启动以后会在MineLoop进行循环出块,Mine函数进行挖矿,获取出块资格,有了出块资格以后调用Generate函数生产区块,获得区块以后签名,然后输出到outCh管道中
+根据图片所示,矿工模块启动以后会在MineLoop进行循环出块,Mine函数进行挖矿,获取出块资格,有了出块资格以后调用Generate函数生产区块,获得区块以后签名,最后输出到outCh管道中
+
 StartMining调用handleNewMiningOutput来处理outCh管道中的区块.
 
 ## 关于挖矿的关键代码
@@ -43,10 +44,10 @@ outCh <- NewOutput(next, err)
 |         getAncestors          | 获得处理所有状态转换所需的祖先链的轮数的区块的TipSet |
 |        SampleNthTicket        |                  获取父区块的ticket                  |
 |      GenerateCandidates       |                 生产候选者的候选分票                 |
-|          NumSectors           |                返回矿工承诺的扇区个数                |
-|       powerTable.Total        |              返回所有矿工提供的扇区总数              |
-|     powerTable.SectorSize     |                返回当前矿工的扇区个数                |
-|         CandidateWins         |              返回当前矿工是否赢得出块权              |
+|          NumSectors           |                获取矿工承诺的扇区个数                |
+|       powerTable.Total        |              获取所有矿工提供的扇区总数              |
+|     powerTable.SectorSize     |                获取当前矿工的扇区个数                |
+|         CandidateWins         |              计算当前矿工是否赢得出块权              |
 |         GeneratePoSt          |            为赢得出块权的矿工生产出块证明            |
 |           Generate            |                       生产区块                       |
 | outCh <- NewOutput(next, err) |              将区块放置到outCh 管道中.               |
@@ -79,6 +80,7 @@ Block
 ```
 
 先给block归下类
+
 基础信息:
 + Miner
 + Parents
